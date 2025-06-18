@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro y Login Freelance</title>
+  <link href="/styles/tailwind.output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg" id="registro-container">
+    <h2 class="text-2xl font-bold mb-6 text-center">Registro</h2>
+    <div id="registro-error" class="text-red-600 mb-2"></div>
+    <div id="registro-success" class="text-green-600 mb-2"></div>
+    <form id="registro-form" class="space-y-4">
+      <div>
+        <label class="block mb-1">Nombre completo *</label>
+        <input type="text" id="reg-nombre" required class="w-full border rounded px-3 py-2">
+      </div>
+      <div>
+        <label class="block mb-1">Email *</label>
+        <input type="email" id="reg-email" required class="w-full border rounded px-3 py-2">
+      </div>
+      <div>
+        <label class="block mb-1">Contraseña *</label>
+        <input type="password" id="reg-password" required minlength="6" autocomplete="new-password" class="w-full border rounded px-3 py-2">
+      </div>
+      <div>
+        <label class="block mb-1">Tipo de usuario *</label>
+        <select id="reg-tipo" required class="w-full border rounded px-3 py-2">
+          <option value="">Selecciona...</option>
+          <option value="freelancer">Freelancer</option>
+          <option value="cliente">Cliente</option>
+        </select>
+      </div>
+      <div>
+        <label class="block mb-1">ID de cuenta Binance (USDT) *</label>
+        <input type="text" id="reg-binance" required pattern="^[0-9A-Za-z]{6,}$" class="w-full border rounded px-3 py-2">
+      </div>
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Registrarse</button>
+    </form>
+    <div class="text-center mt-4">¿Ya tienes cuenta? <a onclick="toggleForm('login')" class="text-blue-600 cursor-pointer">Inicia sesión</a></div>
+  </div>
+
+  <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg" id="login-container" style="display:none;">
+    <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+    <div id="login-error" class="text-red-600 mb-2"></div>
+    <div id="login-success" class="text-green-600 mb-2"></div>
+    <form id="login-form" class="space-y-4">
+      <div>
+        <label class="block mb-1">Email</label>
+        <input type="email" id="login-email" required class="w-full border rounded px-3 py-2">
+      </div>
+      <div>
+        <label class="block mb-1">Contraseña</label>
+        <input type="password" id="login-password" required autocomplete="current-password" class="w-full border rounded px-3 py-2">
+      </div>
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Iniciar sesión</button>
+    </form>
+    <div class="text-center mt-4">¿No tienes cuenta? <a onclick="toggleForm('registro')" class="text-blue-600 cursor-pointer">Regístrate</a></div>
+  </div>
+
+  <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg" id="panel-container" style="display:none;">
+    <h2 class="text-2xl font-bold mb-6 text-center">Panel de Usuario</h2>
+    <div id="panel-info"></div>
+    <button onclick="logout()" class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 mt-4">Cerrar sesión</button>
+  </div>
+
+  <script src="/js/auth/auth.js"></script>
+</body>
+</html>
