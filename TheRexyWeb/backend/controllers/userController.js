@@ -2,7 +2,7 @@ console.log("ESTE ES EL ARCHIVO QUE SE ESTÁ USANDO - userController.js");
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
-import { getCountryFromCode, validatePhoneNumber, extractCountryCode } from "../utils/countryCodes.js";
+import { getCountryFromCode, validatePhoneNumber, extractCountryCode, countryCodes } from "../utils/countryCodes.js";
 
 // Registro de usuario
 export const register = async (req, res) => {
@@ -168,11 +168,7 @@ export const logout = (req, res) => {
 // Obtener países y estados
 export const getCountries = (req, res) => {
   try {
-    import("../utils/countryCodes.js").then(({ countryCodes }) => {
-      res.json(countryCodes);
-    }).catch(err => {
-      res.status(500).json({ msg: "Error interno del servidor" });
-    });
+    res.json(countryCodes);
   } catch (err) {
     res.status(500).json({ msg: "Error interno del servidor" });
   }
