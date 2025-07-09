@@ -4,7 +4,7 @@ import { io } from 'socket.io-client';
 import Navbar from '../../components/Navbar';
 import { Send, UserCircle, Menu, Search, Users } from 'lucide-react';
 
-const socket = io('http://localhost:3000', { withCredentials: true });
+const socket = io(import.meta.env.VITE_API_URL, { withCredentials: true });
 
 export default function Chats() {
   const [chats, setChats] = useState([]);

@@ -17,11 +17,8 @@ import servicesRouter from "./routes/services.js";
 const app = express();
 
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://rex-dot-work.vercel.app'
-  ],
-  credentials: true,
+  origin: ['https://rexdotwork.onrender.com', 'https://rexdotwork.onrender.com'],
+  credentials: true
 }));
 app.use(cookieParser());
 app.use(express.json());

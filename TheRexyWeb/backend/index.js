@@ -25,12 +25,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'default_secret_change_this';
 const server = http.createServer(app);
-const io = new SocketIOServer(server, {
+const io = require('socket.io')(server, {
   cors: {
-    origin: [
-      'http://localhost:5173',
-      'https://rex-dot-work.vercel.app'
-    ],
+    origin: ['https://rexdotwork.onrender.com', 'https://rexdotwork.onrender.com'],
+    methods: ['GET', 'POST'],
     credentials: true
   }
 });
