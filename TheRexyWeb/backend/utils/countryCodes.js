@@ -7,7 +7,7 @@ export const countryCodes = Object.keys(countryMap).reduce((acc, code) => {
   acc[`+${code}`] = {
     name: country.name,
     code: `+${code}`,
-    states: Object.keys(country.states)
+    states: Object.keys(country.states) // emoji eliminado, solo nombre y código
   };
   return acc;
 }, {});
@@ -27,4 +27,4 @@ export const extractCountryCode = (phone) => {
   // Extraer código de país del número de teléfono
   const match = phone.match(/^\+(\d+)/);
   return match ? `+${match[1]}` : null;
-}; 
+};

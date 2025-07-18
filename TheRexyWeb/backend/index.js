@@ -18,6 +18,7 @@ import { Server as SocketIOServer } from 'socket.io';
 import Chat from './models/Chat.js';
 import connectDB from './config/database.js';
 import authRoutes from './routes/authRoutes.js';
+import { Server } from 'socket.io';
 
 dotenv.config();
 
@@ -25,7 +26,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'default_secret_change_this';
 const server = http.createServer(app);
-const io = require('socket.io')(server, {
+const io = new Server(server, {
   cors: {
     origin: ['https://rexdotwork.onrender.com', 'https://rexdotwork.onrender.com'],
     methods: ['GET', 'POST'],
