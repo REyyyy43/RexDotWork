@@ -49,7 +49,6 @@ const CountrySelect = ({ value, onChange, countries, className = "" }) => {
       >
         {selectedCountry ? (
           <span className="flex items-center gap-2 text-gray-700 font-medium">
-            <span className="text-xl">{selectedCountry.emoji}</span>
             <span className="hidden sm:inline truncate">{selectedCountry.name}</span>
             <span className="text-gray-500 font-semibold ml-2">{selectedCountry.code}</span>
           </span>
@@ -90,7 +89,6 @@ const CountrySelect = ({ value, onChange, countries, className = "" }) => {
                     value === code ? 'bg-cyan-50 text-cyan-700' : 'text-gray-700'
                   }`}
                 >
-                  <span className="text-xl">{country.emoji}</span>
                   <span className="truncate">{country.name}</span>
                   <span className="text-gray-500 font-semibold ml-auto">{country.code}</span>
                 </button>
@@ -107,4 +105,4 @@ const CountrySelect = ({ value, onChange, countries, className = "" }) => {
   );
 };
 
-export default CountrySelect; 
+export default CountrySelect;

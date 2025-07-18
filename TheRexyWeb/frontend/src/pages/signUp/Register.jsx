@@ -25,7 +25,8 @@ export default function Registro() {
 
   const loadCountries = async () => {
     try {
-      const response = await api.get("/api/countries");
+      // Cambiado a ruta relativa para evitar doble /api
+      const response = await api.get("/countries");
       setCountries(response.data);
       // Establecer Venezuela como país predeterminado
       if (response.data["+58"]) {
